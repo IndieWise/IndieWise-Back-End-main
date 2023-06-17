@@ -80,7 +80,9 @@ public class PostController {
         postService.deletePostById(postId);
         return ResponseEntity.status(HttpStatus.OK).body("Post deletado");
     }
+
     // Comments
+
     @PostMapping("/post/{postId}/comments")
     public ResponseEntity<Object> addComment(@PathVariable("postId") String postId, @RequestBody @Valid CommentsDto commentsDto) {
         Optional<PostModel> optionalPostModel = postService.findPostById(postId);
@@ -120,7 +122,7 @@ public class PostController {
             }
             var postModel = optionalPostModel.get();
             CommentsModel comment = postModel.getComments().stream()
-                .filter(c -> c.getId() != null && c.getId().equals(commentId))
+                .filter(c -> c.getId().equals(commentId))
                 .findFirst()
                 .orElse(null);
 
@@ -142,12 +144,10 @@ public class PostController {
             }
             var postModel = optionalPostModel.get();
             CommentsModel comment = postModel.getComments().stream()
-                .filter(c -> c.getId() != null && c.getId().equals(commentId))
+                .filter(c -> c.getId().equals(commentId))
                 .findFirst()
                 .orElse(null);
-
-
-        if (comment == null) {
+            if (comment == null) {
                 return ResponseEntity.notFound().build();
             }
             postModel.getComments().remove(comment);
