@@ -8,7 +8,8 @@ public class CommentsModel {
     @Id
     private String id;
     private String texto;
-    private LocalDateTime Commentdata;
+    private LocalDateTime Commentdate;
+
     public String getId() {
         return id;
     }
@@ -21,11 +22,11 @@ public class CommentsModel {
     public void setTexto(String texto) {
         this.texto = texto;
     }
-    public LocalDateTime getCommentdata() {
-        return Commentdata;
+    public LocalDateTime getCommentdate() {
+        return Commentdate;
     }
-    public void setCommentdata(LocalDateTime commentdata) {
-        Commentdata = commentdata;
+    public void setCommentdate(LocalDateTime commentdata) {
+        Commentdate = commentdata;
     }
     
 }
