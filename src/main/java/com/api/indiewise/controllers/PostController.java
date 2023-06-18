@@ -128,7 +128,7 @@ public class PostController {
                 .findFirst()
                 .orElse(null);
 
-        if (comment == null) {
+            if (comment == null) {
                 return ResponseEntity.notFound().build();
             }
             comment.setTexto(commentsDto.getTexto());

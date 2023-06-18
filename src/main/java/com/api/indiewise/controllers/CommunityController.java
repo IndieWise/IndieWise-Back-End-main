@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -69,7 +68,9 @@ public class CommunityController {
         return ResponseEntity.status(HttpStatus.OK).body("Comunidade Deletada");
     }
 
-    //Controlde de usuários dentro da plataforma
+
+    //Controle de usuários dentro da plataforma
+
 
 //    @PostMapping("/community/{communityId}/{userId}")
 //    public ResponseEntity<Object> addMembers(@PathVariable String communityId, @PathVariable String userId){
