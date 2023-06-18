@@ -59,7 +59,8 @@ public class PostController {
     }
     
     @PutMapping("/post/{postId}")
-    public ResponseEntity <Object> updatePost(@PathVariable(value = "id") String postId, @RequestBody @Valid PostDto postDto){
+    public ResponseEntity <Object> updatePost(@PathVariable(value = "id") String postId,
+                                              @RequestBody @Valid PostDto postDto){
         Optional<PostModel> optionalPostModel = postService.findPostById(postId);
         if(!optionalPostModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não encontrado");
@@ -84,7 +85,8 @@ public class PostController {
     // Comments
 
     @PostMapping("/post/{postId}/comments")
-    public ResponseEntity<Object> addComment(@PathVariable("postId") String postId, @RequestBody @Valid CommentsDto commentsDto) {
+    public ResponseEntity<Object> addComment(@PathVariable("postId") String postId,
+                                             @RequestBody @Valid CommentsDto commentsDto) {
         Optional<PostModel> optionalPostModel = postService.findPostById(postId);
         if(!optionalPostModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Post Não Encontrado");
@@ -100,7 +102,7 @@ public class PostController {
     }
 
     @GetMapping("/post/{postId}/comments")
-    public ResponseEntity<List<CommentsModel>> getComments(@PathVariable("postId") String postId) {
+    public ResponseEntity<List<CommentsModel>> getAllComments(@PathVariable("postId") String postId) {
         Optional <PostModel> optionalPostModel = postService.findPostById(postId);
         if (!optionalPostModel.isPresent()) {
             return ResponseEntity.notFound().build();
