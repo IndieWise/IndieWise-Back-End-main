@@ -13,9 +13,8 @@ public class PostModel {
     private String id;
     private String texto;
     private LocalDateTime postDate;
-
     private List<CommentsModel> comments;
-
+    private String communityId;
 
     public String getId() {
         return id;
@@ -41,8 +40,15 @@ public class PostModel {
         }
         return comments;
     }
-
     public void setComments(List<CommentsModel> comments) {
         this.comments = comments;
+    }
+
+    public String getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(String communityId) {
+        this.communityId = communityId;
     }
 }

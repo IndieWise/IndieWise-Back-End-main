@@ -16,11 +16,8 @@ public class PostService {
     @Autowired
     PostRepository postRepository;
 
-    public PostModel savePost(PostModel postModel){
+    public PostModel savePost(PostModel postModel) {
         return postRepository.save(postModel);
-    }
-    public boolean existsByid(String id){
-        return postRepository.existsById(id);
     }
     public Optional<PostModel> findPostById(String id){
         return postRepository.findById(id);
@@ -33,5 +30,9 @@ public class PostService {
     }
     //Comments
 
+    //Communitys
+    public List<PostModel> findAllPostByCommunity(String communityId){
+        return postRepository.findAllPostByCommunityId(communityId);
+    }
 }
 

@@ -6,7 +6,7 @@ public class PostDto {
     @NotBlank
     private String texto;
     private List<CommentsDto> comentarios;
-
+    private String communityId;
     public String getTexto() {
         return texto;
     }
@@ -21,5 +21,13 @@ public class PostDto {
 
     public void setComentarios(List<CommentsDto> comentarios) {
         this.comentarios = comentarios;
+    }
+
+    public String getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(String communityId) {
+        this.communityId = communityId;
     }
 }

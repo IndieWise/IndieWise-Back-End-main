@@ -59,7 +59,7 @@ public class PostController {
     }
     
     @PutMapping("/post/{postId}")
-    public ResponseEntity <Object> updatePost(@PathVariable(value = "id") String postId,
+    public ResponseEntity <Object> updatePost(@PathVariable String postId,
                                               @RequestBody @Valid PostDto postDto){
         Optional<PostModel> optionalPostModel = postService.findPostById(postId);
         if(!optionalPostModel.isPresent()){
@@ -68,6 +68,7 @@ public class PostController {
         var postModel = new PostModel();
         BeanUtils.copyProperties(postDto, postModel);
         postModel.setId(optionalPostModel.get().getId());
+        postModel.setCommunityId(optionalPostModel.get().getCommunityId());
         postModel.setPostDate(optionalPostModel.get().getPostDate());
         return ResponseEntity.status(HttpStatus.OK).body(postService.savePost(postModel));
     }
@@ -156,4 +157,10 @@ public class PostController {
             postService.savePost(postModel);
             return ResponseEntity.ok().build();
     }
+    // Buscar posts de uma comunidade
+    @GetMapping("/post/community/{communityId}")
+    public ResponseEntity<List<PostModel>> getAllPostCommunity(@PathVariable String communityId){
+        return ResponseEntity.status(HttpStatus.OK).body(postService.findAllPostByCommunity(communityId));
+    }
+
 }

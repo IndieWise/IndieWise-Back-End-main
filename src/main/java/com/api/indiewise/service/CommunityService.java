@@ -19,4 +19,5 @@ public class CommunityService {
     public List<CommunityModel> findAllCommunits(){return communityRepository.findAll();}
     public Optional<CommunityModel> findCommunityById(String id){return communityRepository.findById(id);}
     public void deleteCommunity(String id){communityRepository.deleteById(id);}
+
 }
