@@ -7,6 +7,7 @@ public class CommunityDto {
     private String nome;
     @NotBlank
     private String descricao;
+    private String imageId;
 
     public String getNome() {
         return nome;
@@ -22,5 +23,13 @@ public class CommunityDto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 }

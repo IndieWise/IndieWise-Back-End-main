@@ -5,6 +5,8 @@ import java.time.ZoneId;
 import java.util.List;
 
 import java.util.Optional;
+
+import com.api.indiewise.service.ImageService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ import jakarta.validation.Valid;
 public class PostController {
     @Autowired
     PostService postService;
+
+    @Autowired
+    ImageService imageService;
 
     @PostMapping("/post")
     public ResponseEntity<PostModel> savePost(@RequestBody @Valid PostDto postDto){
@@ -82,6 +87,7 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Post Não Encontrado");
         }
         postService.deletePostById(postId);
+        imageService.deleteImage(optionalPostModel.get().getImageId());
         return ResponseEntity.status(HttpStatus.OK).body("Post deletado");
     }
 

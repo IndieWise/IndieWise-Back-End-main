@@ -3,6 +3,7 @@ package com.api.indiewise.controllers;
 import com.api.indiewise.dto.CommunityDto;
 import com.api.indiewise.models.CommunityModel;
 import com.api.indiewise.service.CommunityService;
+import com.api.indiewise.service.ImageService;
 import com.api.indiewise.service.PostService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
@@ -22,7 +23,7 @@ public class CommunityController {
     CommunityService communityService;
 
     @Autowired
-    PostService postService;
+    ImageService imageService;
 
     @PostMapping("/community")
     public ResponseEntity <CommunityModel> saveCommunity(@RequestBody @Valid CommunityDto communityDto){
@@ -65,6 +66,7 @@ public class CommunityController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Comunidade não encontrada");
         }
         communityService.deleteCommunity(communityId);
+        imageService.deleteImage(optionalCommunityModel.get().getImageId());
         return ResponseEntity.status(HttpStatus.OK).body("Comunidade Deletada");
     }
 

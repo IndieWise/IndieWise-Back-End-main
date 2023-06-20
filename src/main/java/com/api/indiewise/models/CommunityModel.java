@@ -9,6 +9,7 @@ public class CommunityModel {
     private String id;
     private String nome;
     private String descricao;
+    private String imageId;
 
     public String getId() {
         return id;
@@ -31,5 +32,13 @@ public class CommunityModel {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 }

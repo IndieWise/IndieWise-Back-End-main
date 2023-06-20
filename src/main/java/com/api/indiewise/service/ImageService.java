@@ -21,4 +21,8 @@ public class ImageService {
     public Optional<ImageModel> findImageById(String id) {
         return imageRepository.findById(id);
     }
+
+    public void deleteImage(String id){
+        imageRepository.deleteById(id);
+    }
 }
