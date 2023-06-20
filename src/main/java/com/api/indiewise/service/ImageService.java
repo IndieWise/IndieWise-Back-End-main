@@ -9,10 +9,16 @@ import java.util.Optional;
 
 @Service
 public class ImageService {
+
     @Autowired
-    static
     ImageRepository imageRepository;
 
-    public static ImageModel saveImage(ImageModel imageModel){return imageRepository.save(imageModel);}
-    public Optional<ImageModel> findImageById(String id){return imageRepository.findById(id);}
+
+    public ImageModel saveImage(ImageModel imageModel) {
+        return imageRepository.save(imageModel);
+    }
+
+    public Optional<ImageModel> findImageById(String id) {
+        return imageRepository.findById(id);
+    }
 }

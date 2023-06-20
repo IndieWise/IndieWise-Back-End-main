@@ -26,12 +26,13 @@ public class ImageController {
         try {
             ImageModel imageModel = new ImageModel();
             imageModel.setContent(file.getBytes());
-            ImageModel savedImage = ImageService.saveImage(imageModel);
+            ImageModel savedImage = imageService.saveImage(imageModel);
             return ResponseEntity.ok().body(savedImage.getId());
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao fazer upload da imagem");
         }
     }
+
 
     @GetMapping("/image/{imageId}")
     public ResponseEntity<byte[]> getImage(@PathVariable String imageId) {

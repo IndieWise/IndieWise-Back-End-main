@@ -69,6 +69,8 @@ public class PostController {
         BeanUtils.copyProperties(postDto, postModel);
         postModel.setId(optionalPostModel.get().getId());
         postModel.setCommunityId(optionalPostModel.get().getCommunityId());
+        postModel.setCommunityName(optionalPostModel.get().getCommunityName());
+        postModel.setImageId(optionalPostModel.get().getImageId());
         postModel.setPostDate(optionalPostModel.get().getPostDate());
         return ResponseEntity.status(HttpStatus.OK).body(postService.savePost(postModel));
     }

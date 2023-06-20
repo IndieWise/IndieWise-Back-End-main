@@ -7,6 +7,9 @@ public class PostDto {
     private String texto;
     private List<CommentsDto> comentarios;
     private String communityId;
+    private String imageId;
+    private String communityName;
+
     public String getTexto() {
         return texto;
     }
@@ -29,5 +32,21 @@ public class PostDto {
 
     public void setCommunityId(String communityId) {
         this.communityId = communityId;
+    }
+
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
+    public String getCommunityName() {
+        return communityName;
+    }
+
+    public void setCommunityName(String communityName) {
+        this.communityName = communityName;
     }
 }
