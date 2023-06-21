@@ -65,8 +65,10 @@ public class CommunityController {
         if(!optionalCommunityModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Comunidade não encontrada");
         }
+        if(optionalCommunityModel.get().getImageId() != null){
+            imageService.deleteImage(optionalCommunityModel.get().getImageId());
+        }
         communityService.deleteCommunity(communityId);
-        imageService.deleteImage(optionalCommunityModel.get().getImageId());
         return ResponseEntity.status(HttpStatus.OK).body("Comunidade Deletada");
     }
 

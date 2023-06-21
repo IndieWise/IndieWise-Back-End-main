@@ -81,13 +81,15 @@ public class PostController {
     }
 
     @DeleteMapping("/post/{postId}")
-    public ResponseEntity<Object> deletePost(@PathVariable String postId){
+    public ResponseEntity<String> deletePost(@PathVariable String postId){
         Optional<PostModel> optionalPostModel = postService.findPostById(postId);
         if(!optionalPostModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Post Não Encontrado");
         }
+        if(optionalPostModel.get().getImageId() != null){
+            imageService.deleteImage(optionalPostModel.get().getImageId());
+        }
         postService.deletePostById(postId);
-        imageService.deleteImage(optionalPostModel.get().getImageId());
         return ResponseEntity.status(HttpStatus.OK).body("Post deletado");
     }
 
