@@ -71,12 +71,13 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não encontrado");
         }
         var postModel = new PostModel();
-        BeanUtils.copyProperties(postDto, postModel);
+        postModel.setTexto(postDto.getTexto());
         postModel.setId(optionalPostModel.get().getId());
         postModel.setCommunityId(optionalPostModel.get().getCommunityId());
         postModel.setCommunityName(optionalPostModel.get().getCommunityName());
         postModel.setImageId(optionalPostModel.get().getImageId());
         postModel.setPostDate(optionalPostModel.get().getPostDate());
+        postModel.setComments(optionalPostModel.get().getComments());
         return ResponseEntity.status(HttpStatus.OK).body(postService.savePost(postModel));
     }
 
