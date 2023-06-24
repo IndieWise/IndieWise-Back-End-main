@@ -27,10 +27,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> autenticarUsuario(@RequestBody UserDto loginDto) {
+    public ResponseEntity<Object> autenticarUsuario(@RequestBody UserDto loginDto) {
         String token = userService.autenticarUsuario(loginDto.getUsername(), loginDto.getPassword());
         if (token != null) {
-            return ResponseEntity.ok(token);
+            return ResponseEntity.ok(loginDto);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos");
         }
