@@ -50,7 +50,9 @@ public class UserService {
         }
         return null;
     }
-
+    public Optional<UserModel> findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
     public boolean validarToken(String token) {
         return jwtUtil.validateToken(token);
     }

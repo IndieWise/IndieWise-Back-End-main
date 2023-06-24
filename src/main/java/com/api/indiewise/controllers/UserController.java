@@ -3,10 +3,13 @@ package com.api.indiewise.controllers;
 import com.api.indiewise.dto.UserDto;
 import com.api.indiewise.models.UserModel;
 import com.api.indiewise.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.util.Optional;
 @CrossOrigin(origins = "*", maxAge = 3600, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/indiewise")
@@ -30,7 +33,8 @@ public class UserController {
     public ResponseEntity<Object> autenticarUsuario(@RequestBody UserDto loginDto) {
         String token = userService.autenticarUsuario(loginDto.getUsername(), loginDto.getPassword());
         if (token != null) {
-            return ResponseEntity.ok(loginDto);
+            Optional <UserModel> optionalUserModel = userService.findByUsername(loginDto.getUsername());
+            return ResponseEntity.ok(optionalUserModel);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos");
         }
