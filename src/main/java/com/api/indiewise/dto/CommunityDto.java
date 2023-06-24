@@ -2,6 +2,7 @@ package com.api.indiewise.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CommunityDto {
@@ -53,6 +54,9 @@ public class CommunityDto {
     }
 
     public List<String> getMembers() {
+        if (members == null) {
+            members = new ArrayList<>();
+        }
         return members;
     }
 
