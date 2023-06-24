@@ -4,6 +4,7 @@ import com.api.indiewise.Security.JwtUtil;
 import com.api.indiewise.dto.UserDto;
 import com.api.indiewise.models.UserModel;
 import com.api.indiewise.repositories.UserRepository;
+import org.apache.catalina.User;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +20,14 @@ public class UserService {
         this.jwtUtil = jwtUtil;
     }
 
-    public void cadastrarUsuario(UserDto userDto) {
+    public Object cadastrarUsuario(UserDto userDto) {
         if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
             throw new IllegalArgumentException("Senha e confirmação de senha não coincidem");
         }
 
         Optional<UserModel> existingUser = userRepository.findByUsername(userDto.getUsername());
         if (existingUser.isPresent()) {
-            throw new IllegalArgumentException("Usuário já existe");
+            return "Usuário já existe";
         }
 
         UserModel newUser = new UserModel();
@@ -36,7 +37,7 @@ public class UserService {
         String senhaCriptografada = BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt());
         newUser.setPassword(senhaCriptografada);
 
-        userRepository.save(newUser);
+        return userRepository.save(newUser);
     }
 
     public String autenticarUsuario(String username, String password) {

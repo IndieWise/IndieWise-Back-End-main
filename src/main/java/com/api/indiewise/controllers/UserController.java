@@ -1,6 +1,7 @@
 package com.api.indiewise.controllers;
 
 import com.api.indiewise.dto.UserDto;
+import com.api.indiewise.models.UserModel;
 import com.api.indiewise.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,9 @@ public class UserController {
     }
 
     @PostMapping("/cadastro")
-    public ResponseEntity<String> cadastrarUsuario(@RequestBody UserDto userDto) {
+    public ResponseEntity<Object> cadastrarUsuario(@RequestBody UserDto userDto) {
         try {
-            userService.cadastrarUsuario(userDto);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado");
+            return ResponseEntity.status(HttpStatus.CREATED).body(userService.cadastrarUsuario(userDto));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
