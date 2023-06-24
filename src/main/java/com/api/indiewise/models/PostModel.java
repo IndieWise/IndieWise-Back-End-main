@@ -11,6 +11,8 @@ public class PostModel {
      
     @Id
     private String id;
+    private String userId;
+    private String userName;
     private String texto;
     private LocalDateTime postDate;
     private List<CommentsModel> comments;
@@ -19,7 +21,6 @@ public class PostModel {
 
     private String imageId;
 
-    private String userId;
 
     public String getUserId() {
         return userId;
@@ -79,5 +80,13 @@ public class PostModel {
 
     public void setCommunityName(String communityName) {
         this.communityName = communityName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

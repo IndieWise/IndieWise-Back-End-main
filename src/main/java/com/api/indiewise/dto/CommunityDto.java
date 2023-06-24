@@ -2,12 +2,15 @@ package com.api.indiewise.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.List;
+
 public class CommunityDto {
-    @NotBlank
+    private String userId;
+    private String userName;
     private String nome;
-    @NotBlank
     private String descricao;
     private String imageId;
+    private List<String> members;
 
     public String getNome() {
         return nome;
@@ -31,5 +34,29 @@ public class CommunityDto {
 
     public void setImageId(String imageId) {
         this.imageId = imageId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public List<String> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<String> members) {
+        this.members = members;
     }
 }

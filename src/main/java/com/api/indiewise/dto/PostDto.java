@@ -1,14 +1,20 @@
 package com.api.indiewise.dto;
 
+import com.api.indiewise.models.CommentsModel;
 import jakarta.validation.constraints.NotBlank;
+
+import java.time.LocalDateTime;
 import java.util.List;
 public class PostDto {
-    @NotBlank
+    private String userId;
+    private String userName;
     private String texto;
-    private List<CommentsDto> comentarios;
+    private LocalDateTime postDate;
+    private List<CommentsModel> comments;
     private String communityId;
-    private String imageId;
     private String communityName;
+
+    private String imageId;
 
     public String getTexto() {
         return texto;
@@ -18,13 +24,7 @@ public class PostDto {
         this.texto = texto;
     }
 
-    public List<CommentsDto> getComentarios() {
-        return comentarios;
-    }
 
-    public void setComentarios(List<CommentsDto> comentarios) {
-        this.comentarios = comentarios;
-    }
 
     public String getCommunityId() {
         return communityId;
@@ -48,5 +48,37 @@ public class PostDto {
 
     public void setCommunityName(String communityName) {
         this.communityName = communityName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public LocalDateTime getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(LocalDateTime postDate) {
+        this.postDate = postDate;
+    }
+
+    public List<CommentsModel> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentsModel> comments) {
+        this.comments = comments;
     }
 }

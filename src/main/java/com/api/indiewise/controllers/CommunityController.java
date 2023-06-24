@@ -56,6 +56,9 @@ public class CommunityController {
         var communityModel = new CommunityModel();
         BeanUtils.copyProperties(communityDto, communityModel);
         communityModel.setId(optionalCommunityModel.get().getId());
+        communityModel.setMembers(optionalCommunityModel.get().getMembers());
+        communityModel.setUserId(optionalCommunityModel.get().getUserId());
+        communityModel.setUserName(optionalCommunityModel.get().getUserName());
         return ResponseEntity.status(HttpStatus.OK).body(communityService.saveCommunity(communityModel));
     }
 

@@ -8,6 +8,7 @@ import com.api.indiewise.models.CommentsModel;
 import com.api.indiewise.models.PostModel;
 import com.api.indiewise.service.PostService;
 import jakarta.validation.Valid;
+import org.bson.types.ObjectId;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -92,18 +93,79 @@ public class PostController {
         return ResponseEntity.status(HttpStatus.OK).body("Post deletado");
     }
 
-    @PostMapping("/post/{postId}/comment")
-    public ResponseEntity<Object> saveComment(@PathVariable String postId,
-                                              @RequestBody @Valid CommentsDto commentsDto){
+     //Comments
+
+    @PostMapping("/post/{postId}/comments")
+    public ResponseEntity<Object> addComment(@PathVariable("postId") String postId,
+                                             @RequestBody @Valid CommentsDto commentsDto) {
         Optional<PostModel> optionalPostModel = postService.findPostById(postId);
         if(!optionalPostModel.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Post Não Encontrado");
         }
-        var commentModel = new CommentsModel();
-        BeanUtils.copyProperties(commentsDto, commentModel);
-        optionalPostModel.get().getComments().add(commentModel);
-        postService.savePost(optionalPostModel.get());
-        return ResponseEntity.status(HttpStatus.CREATED).body(optionalPostModel.get());
+        var postModel = optionalPostModel.get();
+        var commentsModel = new CommentsModel();
+        BeanUtils.copyProperties(commentsDto, commentsModel);
+        commentsModel.setId(ObjectId.get().toString());
+        commentsModel.setCommentdate(LocalDateTime.now(ZoneId.of("UTC")));
+        postModel.getComments().add(commentsModel);
+        postService.savePost(postModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Comentários adicionado");
+    }
+
+    @GetMapping("/post/{postId}/comments")
+    public ResponseEntity<List<CommentsModel>> getAllComments(@PathVariable("postId") String postId) {
+        Optional <PostModel> optionalPostModel = postService.findPostById(postId);
+        if (!optionalPostModel.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        var postModel = optionalPostModel.get();
+        List<CommentsModel> comments = postModel.getComments();
+        return ResponseEntity.status(HttpStatus.OK).body(comments);
+    }
+
+    // Atualize um comentário específico de um post
+    @PutMapping("/post/{postId}/comments/{commentId}")
+    public ResponseEntity<CommentsModel> updateComment(@PathVariable("postId") String postId,
+                                                       @PathVariable("commentId") String commentId,
+                                                       @RequestBody @Valid CommentsDto commentsDto) {
+
+            Optional<PostModel> optionalPostModel = postService.findPostById(postId);
+            if (!optionalPostModel.isPresent()) {
+                return ResponseEntity.notFound().build();
+            }
+            var postModel = optionalPostModel.get();
+            CommentsModel comment = postModel.getComments().stream()
+                .filter(c -> c.getId().equals(commentId))
+                .findFirst()
+                .orElse(null);
+
+            if (comment == null) {
+                return ResponseEntity.notFound().build();
+            }
+            comment.setTexto(commentsDto.getTexto());
+            postService.savePost(postModel);
+            return ResponseEntity.ok(comment);
+    }
+
+    // Exclua um comentário específico de um post
+    @DeleteMapping("/post/{postId}/comments/{commentId}")
+    public ResponseEntity<Object> deleteComment(@PathVariable("postId") String postId,
+                                                @PathVariable("commentId") String commentId) {
+            Optional<PostModel> optionalPostModel = postService.findPostById(postId);
+            if (!optionalPostModel.isPresent()) {
+                return ResponseEntity.notFound().build();
+            }
+            var postModel = optionalPostModel.get();
+            CommentsModel comment = postModel.getComments().stream()
+                .filter(c -> c.getId().equals(commentId))
+                .findFirst()
+                .orElse(null);
+            if (comment == null) {
+                return ResponseEntity.notFound().build();
+            }
+            postModel.getComments().remove(comment);
+            postService.savePost(postModel);
+            return ResponseEntity.ok().build();
     }
 
     @GetMapping("/community/{communityId}/post")
