@@ -17,10 +17,10 @@ public class UserController {
     }
 
     @PostMapping("/cadastro")
-    public ResponseEntity<String> cadastrarUsuario(@RequestBody UserDto userDto) {
+    public ResponseEntity<Object> cadastrarUsuario(@RequestBody UserDto userDto) {
         try {
             userService.cadastrarUsuario(userDto);
-            return ResponseEntity.ok("Usuário cadastrado com sucesso!");
+            return ResponseEntity.status(HttpStatus.CREATED).body(userService.cadastrarUsuario(userDto));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
