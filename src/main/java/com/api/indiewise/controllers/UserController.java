@@ -5,6 +5,7 @@ import com.api.indiewise.models.UserModel;
 import com.api.indiewise.service.UserService;
 import jakarta.validation.Valid;
 import org.apache.catalina.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,28 @@ public class UserController {
         if (optionalUser.isPresent()) {
             UserModel user = optionalUser.get();
             return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
+        }
+    }
+
+    @DeleteMapping("/usuario/{id}")
+    public ResponseEntity<Object> excluirContaPorId(@PathVariable String id){
+        try {
+            userService.excluirUsuario(id);
+            return ResponseEntity.ok("Usuário excluído com sucesso");
+        } catch (EmptyResultDataAccessException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao excluir usuário");
+        }
+    }
+
+    @PutMapping("/usuario/{id}")
+    public ResponseEntity<Object> atualizarUsuario(@PathVariable String id, @RequestBody UserDto userDto) {
+        Optional<UserModel> optionalUser = userService.atualizarUsuario(id, userDto);
+        if (optionalUser.isPresent()) {
+            return ResponseEntity.ok(optionalUser.get());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
         }

@@ -64,6 +64,26 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public void excluirUsuario(String id) {
+        userRepository.deleteById(id);
+    }
+
+    public Optional<UserModel> atualizarUsuario(String id, UserDto userDto) {
+        Optional<UserModel> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            UserModel user = optionalUser.get();
+
+            user.setConhecimento(userDto.getConhecimento());
+            user.setComoAdquiriu(userDto.getComoAdquiriu());
+            user.setPrecoAula(userDto.getPrecoAula());
+            user.setTituloPerfil(userDto.getTituloPerfil());
+            user.setDescricaoPerfil(userDto.getDescricaoPerfil());
+
+            return Optional.of(userRepository.save(user));
+        }
+        return Optional.empty();
+    }
+
 }
 
 

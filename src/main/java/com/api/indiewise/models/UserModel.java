@@ -27,6 +27,7 @@ public class UserModel {
 
     private String imageId;
 
+    private String imagenFundoId;
 
     private String conhecimento;
 
@@ -134,5 +135,13 @@ public class UserModel {
 
     public void setDescricaoPerfil(String descricaoPerfil) {
         this.descricaoPerfil = descricaoPerfil;
+    }
+
+    public String getImagenFundoId() {
+        return imagenFundoId;
+    }
+
+    public void setImagenFundoId(String imagenFundoId) {
+        this.imagenFundoId = imagenFundoId;
     }
 }

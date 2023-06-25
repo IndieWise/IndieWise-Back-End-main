@@ -22,6 +22,8 @@ public class UserDto {
 
     private String imageId;
 
+    private String imagenFundoId;
+
     private String conhecimento;
 
     private String comoAdquiriu;
@@ -112,5 +114,13 @@ public class UserDto {
 
     public void setDescricaoPerfil(String descricaoPerfil) {
         this.descricaoPerfil = descricaoPerfil;
+    }
+
+    public String getImagenFundoId() {
+        return imagenFundoId;
+    }
+
+    public void setImagenFundoId(String imagenFundoId) {
+        this.imagenFundoId = imagenFundoId;
     }
 }
