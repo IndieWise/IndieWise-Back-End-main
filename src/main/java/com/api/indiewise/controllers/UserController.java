@@ -3,6 +3,7 @@ package com.api.indiewise.controllers;
 import com.api.indiewise.dto.UserDto;
 import com.api.indiewise.models.UserModel;
 import com.api.indiewise.service.UserService;
+import jakarta.validation.Valid;
 import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping("/cadastro")
-    public ResponseEntity<Object> cadastrarUsuario(@RequestBody UserDto userDto) {
+    public ResponseEntity<Object> cadastrarUsuario(@RequestBody @Valid UserDto userDto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(userService.cadastrarUsuario(userDto));
         } catch (IllegalArgumentException e) {
@@ -39,4 +40,18 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos");
         }
     }
+
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<Object> obterUsuarioPorId(@PathVariable String id) {
+        Optional<UserModel> optionalUser = userService.findById(id);
+        if (optionalUser.isPresent()) {
+            UserModel user = optionalUser.get();
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
+        }
+    }
+
+
+
 }

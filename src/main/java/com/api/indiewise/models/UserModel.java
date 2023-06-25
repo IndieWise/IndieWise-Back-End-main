@@ -27,6 +27,21 @@ public class UserModel {
 
     private String imageId;
 
+
+    private String conhecimento;
+
+
+    private String comoAdquiriu;
+
+
+    private String precoAula;
+
+
+    private String tituloPerfil;
+
+
+    private String descricaoPerfil;
+
     public String getConfirmPassword() {
         return confirmPassword;
     }
@@ -75,5 +90,49 @@ public class UserModel {
 
     public void setPhoto(String imageId) {
         this.imageId = imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
+    public String getConhecimento() {
+        return conhecimento;
+    }
+
+    public void setConhecimento(String conhecimento) {
+        this.conhecimento = conhecimento;
+    }
+
+    public String getComoAdquiriu() {
+        return comoAdquiriu;
+    }
+
+    public void setComoAdquiriu(String comoAdquiriu) {
+        this.comoAdquiriu = comoAdquiriu;
+    }
+
+    public String getPrecoAula() {
+        return precoAula;
+    }
+
+    public void setPrecoAula(String precoAula) {
+        this.precoAula = precoAula;
+    }
+
+    public String getTituloPerfil() {
+        return tituloPerfil;
+    }
+
+    public void setTituloPerfil(String tituloPerfil) {
+        this.tituloPerfil = tituloPerfil;
+    }
+
+    public String getDescricaoPerfil() {
+        return descricaoPerfil;
+    }
+
+    public void setDescricaoPerfil(String descricaoPerfil) {
+        this.descricaoPerfil = descricaoPerfil;
     }
 }

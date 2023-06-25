@@ -4,7 +4,6 @@ import com.api.indiewise.Security.JwtUtil;
 import com.api.indiewise.dto.UserDto;
 import com.api.indiewise.models.UserModel;
 import com.api.indiewise.repositories.UserRepository;
-import org.apache.catalina.User;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +59,11 @@ public class UserService {
     public String extrairUsernameDoToken(String token) {
         return jwtUtil.extractUsername(token);
     }
+
+    public Optional<UserModel> findById(String id) {
+        return userRepository.findById(id);
+    }
+
 }
 
 
