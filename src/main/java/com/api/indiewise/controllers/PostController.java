@@ -167,10 +167,13 @@ public class PostController {
             postService.savePost(postModel);
             return ResponseEntity.ok().build();
     }
-
     @GetMapping("/community/{communityId}/post")
     public ResponseEntity<List<PostModel>> getAllPostByCommunity(@PathVariable String communityId){
         return ResponseEntity.status(HttpStatus.OK).body(postService.findAllPostByCommunity(communityId));
+    }
+    @GetMapping("/user/post/{userId}")
+    public ResponseEntity<List<PostModel>> getAllPostByUserId(@PathVariable String userId){
+        return ResponseEntity.status(HttpStatus.OK).body(postService.getAllPostByUserId(userId));
     }
 }
 

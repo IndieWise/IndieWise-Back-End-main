@@ -36,6 +36,9 @@ public class PostService {
     public List<PostModel> findAllPostByCommunity(String communityId) {
         return postRepository.findAllPostByCommunityId(communityId);
     }
+    public List<PostModel> getAllPostByUserId(String userId){
+        return postRepository.getAllPostByUserId(userId);
+    }
 }
 
 
