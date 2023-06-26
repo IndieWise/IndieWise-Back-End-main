@@ -32,6 +32,8 @@ public class UserService {
         UserModel newUser = new UserModel();
         newUser.setUsername(userDto.getUsername());
         newUser.setEmail(userDto.getEmail());
+        newUser.setImageId(userDto.getImageId());
+        newUser.setImagenFundoId(userDto.getImagenFundoId());
 
         String senhaCriptografada = BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt());
         newUser.setPassword(senhaCriptografada);

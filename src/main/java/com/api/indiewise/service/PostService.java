@@ -33,6 +33,7 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
+
     public List<PostModel> findAllPostByCommunity(String communityId) {
         return postRepository.findAllPostByCommunityId(communityId);
     }
