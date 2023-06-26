@@ -13,7 +13,7 @@ public class PostDto {
     private List<CommentsModel> comments;
     private String communityId;
     private String communityName;
-
+    private String perfilImageId;
     private String imageId;
 
     public String getTexto() {
@@ -80,5 +80,13 @@ public class PostDto {
 
     public void setComments(List<CommentsModel> comments) {
         this.comments = comments;
+    }
+
+    public String getPerfilImageId() {
+        return perfilImageId;
+    }
+
+    public void setPerfilImageId(String perfilImageId) {
+        this.perfilImageId = perfilImageId;
     }
 }

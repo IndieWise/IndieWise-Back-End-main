@@ -18,7 +18,7 @@ public class PostModel {
     private List<CommentsModel> comments;
     private String communityId;
     private String communityName;
-
+    private String perfilImageId;
     private String imageId;
 
 
@@ -88,5 +88,13 @@ public class PostModel {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPerfilImageId() {
+        return perfilImageId;
+    }
+
+    public void setPerfilImageId(String perfilImageId) {
+        this.perfilImageId = perfilImageId;
     }
 }
