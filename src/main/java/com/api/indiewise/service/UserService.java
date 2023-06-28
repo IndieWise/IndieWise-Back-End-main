@@ -7,6 +7,7 @@ import com.api.indiewise.repositories.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -65,6 +66,7 @@ public class UserService {
     public Optional<UserModel> findById(String id) {
         return userRepository.findById(id);
     }
+    public List<UserModel> findAllProf(){return userRepository.findByConhecimentoIsNotNull();}
 
     public void excluirUsuario(String id) {
         userRepository.deleteById(id);

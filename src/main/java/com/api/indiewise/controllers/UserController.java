@@ -4,13 +4,13 @@ import com.api.indiewise.dto.UserDto;
 import com.api.indiewise.models.UserModel;
 import com.api.indiewise.service.UserService;
 import jakarta.validation.Valid;
-import org.apache.catalina.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.List;
 import java.util.Optional;
 @CrossOrigin(origins = "*", maxAge = 3600, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
@@ -75,6 +75,8 @@ public class UserController {
         }
     }
 
-
-
+    @GetMapping("/professores")
+    public List<UserModel> getAllUsers() {
+        return userService.findAllProf();
+        }
 }
