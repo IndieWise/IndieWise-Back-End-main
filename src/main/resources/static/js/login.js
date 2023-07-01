@@ -4,8 +4,9 @@ const btnLogin = document.querySelector(".btnLogin");
 //////////////////////////////////////////////////
 /////////////////////////////
 //Login
+//"http://localhost:8080
 const login = async () =>{ 
-    const urlf = "http://localhost:8080/indiewise/login"; //url de vcs
+    const urlf = "/indiewise/login"; //url de vcs
     const userDto = {
       "username": emailLogin.value, //Passar os parametros do seu banco
       "password": senhaLogin.value,//pegar o value dos inputs do html de vcs

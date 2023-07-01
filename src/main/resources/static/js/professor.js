@@ -29,18 +29,18 @@ const imageFundoId = localStorage.getItem('imagenFundoId');
 const professorIdLocal = localStorage.getItem("professorId");
 const mudarInformacaoUsuarioCanto = () => {
     const informacaoUsuarioCanto = document.getElementById("informacaoUsuarioCanto");
-    informacaoUsuarioCanto.firstElementChild.src = `http://localhost:8080/indiewise/image/${imageIdPerfil}`;
+    informacaoUsuarioCanto.firstElementChild.src = `/indiewise/image/${imageIdPerfil}`;
     informacaoUsuarioCanto.children[1].textContent = userName;
 };
 //////////////////////////////////////////
 //Professor
 const carregarPaginaProfessor = async(professorIdLocal) =>{
-    urlGetUser =`http://localhost:8080/indiewise/usuario/${professorIdLocal}`;
+    urlGetUser =`/indiewise/usuario/${professorIdLocal}`;
     try{
       const response = await fetch(urlGetUser, {method: 'Get'});
       if(response.ok){
         const data = await response.json();
-        imgProfessor.src = `http://localhost:8080/indiewise/image/${data.imageId}`;
+        imgProfessor.src = `/indiewise/image/${data.imageId}`;
         conhecimentoProfessor.innerHTML = `Ensina ${data.conhecimento}`;
         nomeProfessor.innerHTML = data.username;
         descricaoProfessor.innerHTML = data.descricaoPerfil;

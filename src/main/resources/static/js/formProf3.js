@@ -27,7 +27,7 @@ const imageFundoId = localStorage.getItem('imagenFundoId');
 async function virarProfessor() {
     localStorage.setItem("tituloCadastroProfessor", tituloCadastroProfessor.value);
     localStorage.setItem("descricaoCadastroProfessor", descricaoCadastroProfessor.value);
-    const urlVirarProf = `http://localhost:8080/indiewise/usuario/${userId}`;
+    const urlVirarProf = `/indiewise/usuario/${userId}`;
     const profDto = {
       "conhecimento": localStorage.getItem("seuConhecimentoCadastroProfessor"),
       "comoAdquiriu": localStorage.getItem("adquiriuConhecimentoCadastroProfessor"),

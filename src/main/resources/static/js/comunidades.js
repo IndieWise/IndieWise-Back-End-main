@@ -23,7 +23,7 @@ const imageFundoId = localStorage.getItem('imagenFundoId');
 
 const mudarInformacaoUsuarioCanto = () => {
     const informacaoUsuarioCanto = document.getElementById("informacaoUsuarioCanto");
-    informacaoUsuarioCanto.firstElementChild.src = `http://localhost:8080/indiewise/image/${imageIdPerfil}`;
+    informacaoUsuarioCanto.firstElementChild.src = `/indiewise/image/${imageIdPerfil}`;
     informacaoUsuarioCanto.children[1].textContent = userName;
 };
 async function  salvarComunidadeLocal(event){
@@ -45,14 +45,14 @@ async function  salvarComunidadeLocal(event){
 //Comunidades
 const mostrarComunidades = async () => {
     comunidadeContainer.innerHTML = '';
-    const url = "http://localhost:8080/indiewise/community";
+    const url = "/indiewise/community";
     try {
       const response = await fetch(url, { method: 'GET' });
       if (response.ok) {
         const comunidades = await response.json();
         comunidades.forEach(comunidade => {
           let elementoComunidade = `<a class="cRecentes" onclick="salvarComunidadeLocal(event)" id ="${comunidade.id}" title="${comunidade.nome}">
-          <img src="http://localhost:8080/indiewise/image/${comunidade.imageId}" alt="">
+          <img src="/indiewise/image/${comunidade.imageId}" alt="">
           <h4>${comunidade.nome}</h4>
           <p><i class="fa-solid fa-user"></i> 60 membros</p>
           <p><i class="fa-solid fa-chalkboard-user"></i>10 mentores</p>  

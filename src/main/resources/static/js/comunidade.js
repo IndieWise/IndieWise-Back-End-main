@@ -28,11 +28,11 @@ const savedCommunityId = localStorage.getItem('communityId');
 const savedCommunityName = localStorage.getItem('communityName');
 const mudarInformacaoUsuarioCanto = () => {
     const informacaoUsuarioCanto = document.getElementById("informacaoUsuarioCanto");
-    informacaoUsuarioCanto.firstElementChild.src = `http://localhost:8080/indiewise/image/${imageIdPerfil}`;
+    informacaoUsuarioCanto.firstElementChild.src = `/indiewise/image/${imageIdPerfil}`;
     informacaoUsuarioCanto.children[1].textContent = userName;
 };
 async function uploadImageAndGetId(file) {
-    const urlImage = "http://localhost:8080/indiewise/image";
+    const urlImage = "/indiewise/image";
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -74,7 +74,7 @@ try{
     posts.forEach(post => {
       let elementoPost = `<div class="post" id="${post.id}">
                  <div class="usuario">
-                     <img src="http://localhost:8080/indiewise/image/${post.perfilImageId}" alt="">
+                     <img src="/indiewise/image/${post.perfilImageId}" alt="">
                      <h3 class="nome" onclick="pegarIdUsuarioAlheio(event)" id="${post.userId}">${post.userName}</h3>
                      <p>${post.communityName}</p>
                      </div>
@@ -98,12 +98,12 @@ try{
 }
 }
 async function carregarComunidade(id){
-      urlComunity =`http://localhost:8080/indiewise/community/${id}`;
+      urlComunity =`/indiewise/community/${id}`;
       try{
         const response = await fetch(urlComunity, {method: 'Get'});
         if(response.ok){
           const data = await response.json();
-          imgHeaderComunidade.src = `http://localhost:8080/indiewise/image/${data.imageId}`
+          imgHeaderComunidade.src = `/indiewise/image/${data.imageId}`
           mostrarPostsComunidade(id);
         }else{
           console.log("erro ao carregar página", response.status);
@@ -132,7 +132,7 @@ function aparecerPopup() {
 
 //Cria posts
 buttonPost.addEventListener("click", async() =>{
-    const url = "http://localhost:8080/indiewise/post";
+    const url = "/indiewise/post";
     const fileInput = document.getElementById("myFiles");
     const imageFile = fileInput.files[0];
   

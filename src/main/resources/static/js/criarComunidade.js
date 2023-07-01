@@ -24,7 +24,7 @@ const userName = localStorage.getItem('userName');
 const imageIdPerfil = localStorage.getItem('imageID');
 const imageFundoId = localStorage.getItem('imagenFundoId');
 async function uploadImageAndGetId(file) {
-    const urlImage = "http://localhost:8080/indiewise/image";
+    const urlImage = "/indiewise/image";
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -48,7 +48,7 @@ async function uploadImageAndGetId(file) {
 ////////////////////////////////////////////////
 //criar Comunidade
 buttonComunidade.addEventListener('click', async () => {
-    const urlCriarComunidades = "http://localhost:8080/indiewise/community"
+    const urlCriarComunidades = "/indiewise/community"
     const imageFile = inputFileCriarComunidade.files[0];
     let imageId = null;
     if (imageFile) {

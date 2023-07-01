@@ -26,7 +26,7 @@ const imageIdPerfil = localStorage.getItem('imageID');
 const imageFundoId = localStorage.getItem('imagenFundoId');
 //usuario
 const carregarPostsUsuario = async (id) => {
-    const url = `http://localhost:8080/indiewise/user/post/${userId}`;
+    const url = `/indiewise/user/post/${userId}`;
     postsContainerUsuario.innerHTML = ''; 
     try{
       const response = await fetch(url, {method: 'Get'});
@@ -35,13 +35,13 @@ const carregarPostsUsuario = async (id) => {
         posts.forEach(post => {
           let elementoPost = `<div class="post" id="${post.id}">
                      <div class="usuario">
-                         <img src="http://localhost:8080/indiewise/image/${post.perfilImageId}" alt="">
+                         <img src="/indiewise/image/${post.perfilImageId}" alt="">
                          <h3 class="nome" onclick="pegarIdUsuarioAlheio(event)" id="${post.userId}">${post.userName}</h3>
                          <p>${post.communityName}</p>
                          </div>
                          <div class="conteudo">
                          <p>${post.texto}</p>
-                         <img src="http://localhost:8080/indiewise/image/${post.imageId}" alt="">
+                         <img src="/indiewise/image/${post.imageId}" alt="">
                          </div>
                          <div class="botoes">
                          <button type="button"><i class="fa-solid fa-brain"></i>Curtir</button>
@@ -59,7 +59,7 @@ const carregarPostsUsuario = async (id) => {
     }
 };
 const carregarMinhaPagina = async(id) =>{
-    urlGetUser =`http://localhost:8080/indiewise/usuario/${id}`;
+    urlGetUser =`/indiewise/usuario/${id}`;
     try{
       const response = await fetch(urlGetUser, {method: 'Get'});
       if(response.ok){

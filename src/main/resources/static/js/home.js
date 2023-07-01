@@ -28,7 +28,7 @@ const imageFundoId = localStorage.getItem('imagenFundoId');
 
 const mudarInformacaoUsuarioCanto = () => {
     const informacaoUsuarioCanto = document.getElementById("informacaoUsuarioCanto");
-    informacaoUsuarioCanto.firstElementChild.src = `http://localhost:8080/indiewise/image/${imageIdPerfil}`;
+    informacaoUsuarioCanto.firstElementChild.src = `/indiewise/image/${imageIdPerfil}`;
     informacaoUsuarioCanto.children[1].textContent = userName;
 };
 async function  salvarComunidadeLocal(event){
@@ -59,13 +59,13 @@ const pegarIdUsuarioAlheio = async (event) =>{
 //Home
 const mostrarComunidadesHome = async () => {
     comunidadeContainerHome.innerHTML = '';
-    const url = "http://localhost:8080/indiewise/community";
+    const url = "/indiewise/community";
     try {
       const response = await fetch(url, { method: 'GET' });
       if (response.ok) {
         const comunidades = await response.json();
         comunidades.forEach(comunidade => {
-          let elementoComunidade = `<img src="http://localhost:8080/indiewise/image/${comunidade.imageId}"  onclick="salvarComunidadeLocal(event)" id="${comunidade.id}" title="${comunidade.nome}" class="destaque">`;
+          let elementoComunidade = `<img src="/indiewise/image/${comunidade.imageId}"  onclick="salvarComunidadeLocal(event)" id="${comunidade.id}" title="${comunidade.nome}" class="destaque">`;
           comunidadeContainerHome.insertAdjacentHTML('afterbegin', elementoComunidade);
           console.log("Comunidades carregadas", comunidades);
         });
@@ -78,7 +78,7 @@ const mostrarComunidadesHome = async () => {
 };
 const mostrarPosts = async () => {
     postsContainerHome.innerHTML = ''; 
-    const url = "http://localhost:8080/indiewise/post";
+    const url = "/indiewise/post";
     try{
       const response = await fetch(url, {method: 'Get'});
       if(response.ok){
@@ -86,13 +86,13 @@ const mostrarPosts = async () => {
          posts.forEach(post => {
         let elementoPost = `<div class="post" id="${post.id}">
                       <div class="usuario">
-                          <img src="http://localhost:8080/indiewise/image/${post.perfilImageId}" alt="">
+                          <img src="/indiewise/image/${post.perfilImageId}" alt="">
                           <h3 class="nome" onclick="pegarIdUsuarioAlheio(event)"id="${post.userId}">${post.userName}</h3>
                           <p>${post.communityName}</p>
                           </div>
                           <div class="conteudo">
                           <p>${post.texto}</p>
-                          <img src="http://localhost:8080/indiewise/image/${post.imageId}" alt="">
+                          <img src="/indiewise/image/${post.imageId}" alt="">
                           </div>
                           <div class="botoes">
                           <button type="button"><i class="fa-solid fa-brain"></i>Curtir</button>

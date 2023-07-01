@@ -8,7 +8,7 @@ const btnCadastro = document.querySelector(".btnCadastro");
 
 //Upload de imagens
 async function uploadImageAndGetId(file) {
-    const urlImage = "http://localhost:8080/indiewise/image";
+    const urlImage = "/indiewise/image";
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -32,7 +32,7 @@ async function uploadImageAndGetId(file) {
 ///////////////////////////////////
 //Cadastro
 const cadastrarUsuario = async () =>{
-    const url = "http://localhost:8080/indiewise/cadastro";
+    const url = "/indiewise/cadastro";
         const fotoCapa = fotoCapaForm.files[0];
         const fotoPerfil = fotoPerfilForm.files[0]; 
         let imageIdPerfilCadastro = null;

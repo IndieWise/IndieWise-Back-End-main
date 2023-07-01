@@ -22,7 +22,7 @@ const nomeAlheio = document.querySelector(".nomeAlheio");
 ///////////////////////////////////////
 //Usuario alheio
 const carregarPostsUsuarioAlheio = async (id) => {
-    const url = `http://localhost:8080/indiewise/user/post/${id}`;
+    const url = `/indiewise/user/post/${id}`;
     postsContainerUsuarioAlheio.innerHTML = ''; 
     try{
       const response = await fetch(url, {method: 'Get'});
@@ -31,13 +31,13 @@ const carregarPostsUsuarioAlheio = async (id) => {
         posts.forEach(post => {
           let elementoPost = `<div class="post" id="${post.id}">
                      <div class="usuario">
-                         <img src="http://localhost:8080/indiewise/image/${post.perfilImageId}" alt="">
+                         <img src="/indiewise/image/${post.perfilImageId}" alt="">
                          <h3 class="nome" onclick="pegarIdUsuarioAlheio(event)" id="${post.userId}">${post.userName}</h3>
                          <p>${post.communityName}</p>
                          </div>
                          <div class="conteudo">
                          <p>${post.texto}</p>
-                         <img src="http://localhost:8080/indiewise/image/${post.imageId}" alt="">
+                         <img src="/indiewise/image/${post.imageId}" alt="">
                          </div>
                          <div class="botoes">
                          <button type="button"><i class="fa-solid fa-brain"></i>Curtir</button>
@@ -55,13 +55,13 @@ const carregarPostsUsuarioAlheio = async (id) => {
     }
 };
 const carregarPaginaAlheia = async(id) =>{
-    urlGetUser =`http://localhost:8080/indiewise/usuario/${id}`;
+    urlGetUser =`/indiewise/usuario/${id}`;
     try{
       const response = await fetch(urlGetUser, {method: 'Get'});
       if(response.ok){
         const data = await response.json();
-        imgCapaAlheia.src = `http://localhost:8080/indiewise/image/${data.imagenFundoId}`;
-        imgPerfilAlheia.src = `http://localhost:8080/indiewise/image/${data.imageId}`;
+        imgCapaAlheia.src = `/indiewise/image/${data.imagenFundoId}`;
+        imgPerfilAlheia.src = `/indiewise/image/${data.imageId}`;
         nomeAlheio.innerHTML = data.username;
         carregarPostsUsuarioAlheio(id);
       }else{

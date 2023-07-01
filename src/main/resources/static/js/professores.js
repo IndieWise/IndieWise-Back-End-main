@@ -23,7 +23,7 @@ const imageFundoId = localStorage.getItem('imagenFundoId');
 const professorIdLocal = localStorage.getItem("professorId");
 const mudarInformacaoUsuarioCanto = () => {
     const informacaoUsuarioCanto = document.getElementById("informacaoUsuarioCanto");
-    informacaoUsuarioCanto.firstElementChild.src = `http://localhost:8080/indiewise/image/${imageIdPerfil}`;
+    informacaoUsuarioCanto.firstElementChild.src = `/indiewise/image/${imageIdPerfil}`;
     informacaoUsuarioCanto.children[1].textContent = userName;
 };
 async function  salvarprofessorLocal(event){
@@ -39,7 +39,7 @@ async function  salvarprofessorLocal(event){
 ////////////////////////////////////////
 //Professores
 async function carregarProfessores() {
-    const urlProf = `http://localhost:8080/indiewise/professores`;
+    const urlProf = `/indiewise/professores`;
     verticalProf.innerHTML = '';
     try {
       const response = await fetch(urlProf, { method: 'Get' });
@@ -47,7 +47,7 @@ async function carregarProfessores() {
         professores = await response.json();
         professores.forEach(professor => {
           let elementoProfessor = ` <div class="professor" onclick="salvarprofessorLocal(event)"id="${professor.id}">
-            <img src="http://localhost:8080/indiewise/image/${professor.imageId}" alt="">
+            <img src="/indiewise/image/${professor.imageId}" alt="">
             <div class="infoProf">
                 <h3>${professor.username}</h3>
                 <p>Ensina ${professor.conhecimento}</p>
