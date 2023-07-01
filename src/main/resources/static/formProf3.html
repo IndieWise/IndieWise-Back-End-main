@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndieWise | Formulário</title>
+    <link class="folhaDeEstilo" rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/logoaaa.ico" type="image/x-icon">
+</head>
+<body class="bodyForm">
+    
+    <nav class="navForm">
+        <a href="formProf1.html">
+            <p class="num">1</p>
+            <p>Começando</p>
+        </a>
+        
+        <hr>
+
+        <a href="formProf2.html">
+            <p class="num">2</p>
+            <p>Seu conhecimento</p>
+        </a>
+        
+        <hr>
+
+        <a href="formProf3.html">
+            <p class="numDestaque">3</p>
+            <p>Seu perfil</p>
+        </a>
+    </nav>
+    
+    
+    
+    <main class="mainForm3">
+            <h1>Ufa, está quase lá!</h1>
+            <p>Abaixo coloque o título e a descrição do seu perfil como compartilhador de conhecimento</p>
+    
+                <form>
+                <input type="text" placeholder="Títilo" id="tituloCadastroProfessor">
+                <textarea placeholder="Descrição" id="descricaoCadastroProfessor"></textarea>
+            </form>
+            <button  id="enviarCadastroProfessor" onclick="virarProfessor()">Enviar</button>
+            <!-- <a >Compartilhar conhecimento</a> -->
+    </main>
+    
+
+
+    <aside class="asideForm3">
+        <h3>Vídeo de apresentação</h3>
+
+        <div class="video">
+            <!-- <i class="fa-solid fa-arrow-up-from-bracket"></i>  -->
+            <input type="file" accept="video/mp4,video/webm" id="video">
+            <!-- <video id="video-preview" controls autoplay loop></video>        -->
+        </div>
+
+        <h2>Dicas para o vídeo de apresentação</h2>
+
+        <p>Seja o mais natural possível</p>
+        <p>Encontre um lugar silencioso e com boa iluminação para gravar</p>
+        <p>O vídeo não precisa ser muito longo, deve ter no máximo 6 minutos</p>
+    </aside>
+
+    <section class="disponibilidade">
+        <h3>Diponibilidade</h3>
+    </section>
+
+
+    
+    <script src="js/formProf3.js"></script>
+    <script src="https://kit.fontawesome.com/4e5b541ca7.js" crossorigin="anonymous"></script>
+</body>
+</html>
