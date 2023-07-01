@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/cadastro")
-    public ResponseEntity<Object> cadastrarUsuario(@RequestBody @Valid UserDto userDto) {
+    public ResponseEntity<Object> cadastrarUsuario(@RequestBody UserDto userDto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(userService.cadastrarUsuario(userDto));
         } catch (IllegalArgumentException e) {
