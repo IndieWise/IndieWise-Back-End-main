@@ -4,7 +4,6 @@ const btnLogin = document.querySelector(".btnLogin");
 //////////////////////////////////////////////////
 /////////////////////////////
 //Login
-//"http://localhost:8080
 const login = async () =>{ 
     const urlf = "/indiewise/login"; //url de vcs
     const userDto = {
