@@ -64,8 +64,8 @@ const carregarMinhaPagina = async(id) =>{
       const response = await fetch(urlGetUser, {method: 'Get'});
       if(response.ok){
         const data = await response.json();
-        imgCapa.src = `http://localhost:8080/indiewise/image/${data.imagenFundoId}`;
-        imgPerfil.src = `http://localhost:8080/indiewise/image/${data.imageId}`;
+        imgCapa.src = `/indiewise/image/${data.imagenFundoId}`;
+        imgPerfil.src = `/indiewise/image/${data.imageId}`;
         meuNome.innerHTML = data.username;
         carregarPostsUsuario(id);
       }else{
