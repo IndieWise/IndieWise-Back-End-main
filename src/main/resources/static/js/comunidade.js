@@ -65,7 +65,7 @@ const pegarIdUsuarioAlheio = async (event) =>{
 ////////////////////////////////////////
 //comunidade
 const mostrarPostsComunidade = async (communidadeId) => {
-const url = `http://localhost:8080/indiewise/community/${communidadeId}/post`;
+const url = `/indiewise/community/${communidadeId}/post`;
 postsContainerComunidade.innerHTML = ''; 
 try{
   const response = await fetch(url, {method: 'Get'});
@@ -80,7 +80,7 @@ try{
                      </div>
                      <div class="conteudo">
                      <p>${post.texto}</p>
-                     <img src="http://localhost:8080/indiewise/image/${post.imageId}" alt="">
+                     <img src="/indiewise/image/${post.imageId}" alt="">
                      </div>
                      <div class="botoes">
                      <button type="button"><i class="fa-solid fa-brain"></i>Curtir</button>
