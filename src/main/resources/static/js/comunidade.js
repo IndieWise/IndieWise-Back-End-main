@@ -174,3 +174,5 @@ buttonPost.addEventListener("click", async() =>{
 //Ativação de funções
 carregarComunidade(savedCommunityId);
 mudarInformacaoUsuarioCanto();
+
+//sei lá tbm
