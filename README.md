@@ -6,14 +6,14 @@
 <h3>A nossa ideia</h3>
 <p>Nós acreditamos que todos tem algo a aprender e a ensinar</p>
 <h3>Tecnologias</h3>
-Front-end
-+ HTML 5
-+ CSS
-+ JavaScript
-Back-end
-+ Java
-+ Spring Boot
-Banco de dados
-+ Mongo DB
-Hospedagem
-+ railWay
+Front-end<br>
++ HTML 5<br>
++ CSS<br>
++ JavaScript<br><br>
+Back-end<br>
++ Java<br>
++ Spring Boot<br>
+Banco de dados<br>
++ Mongo DB<br><br>
+Hospedagem<br>
++ railWay<br>
