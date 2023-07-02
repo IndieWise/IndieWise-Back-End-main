@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ViewController {
-    @GetMapping("/teste")
+    @GetMapping("/indiewise.com.br")
     public String home() {
         return "login.html";
     }
