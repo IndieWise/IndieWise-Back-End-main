@@ -8,18 +8,28 @@ Você já se perguntou por que muitas vezes o conteúdo das aulas no ambiente es
 
 ### A nossa ideia
 
-Com o objetivo de proporcionar um ambiente onde aprender pode ser algo divertido e interessante, a IndieWise surge com o objetivo de valorizar todos os tipos de conhecimentos, reunindo pessoas com diversas aptidões e interesses para que juntos busquem formas criativas de ensinar e aprender. 
+Com o objetivo de proporcionar um ambiente onde aprender pode ser algo divertido e interessante, a IndieWise surge com o propósito de valorizar todos os tipos de conhecimento, reunindo pessoas com diversas aptidões e interesses para que juntos busquem formas criativas de ensinar e aprender.
 
 ### Tecnologias
 
 1. Front-end
-    - HTML 5
-    - CSS
-    - JavaScript
+   - HTML5
+   - CSS
+   - JavaScript
 2. Back-end
-    - Java
-    - Spring Boot
+   - Java
+   - Spring Boot
 3. Banco de dados
-    - Mongo DB
+   - MongoDB
 4. Hospedagem
-    - railWay
+   - Railway
+
+### Integrantes
+
+### Links
+
+1. Protótipo
+2. Site no Railway
+https://indiewise-back-end-main-production.up.railway.app/indiewise.com.br
+4. LinkTree
+https://linktr.ee/indie.wise
