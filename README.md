@@ -4,11 +4,11 @@
 
 ### Por que?
 
-Muitas pessoas acreditam que o único lugar para adquirir conhecimento é a escola.
+Você já se perguntou por que muitas vezes o conteúdo das aulas no ambiente escolar é transmitido de forma padronizada e engessada? Será que todos os estudantes aprendem da mesma maneira e ao mesmo ritmo? E o mais importante, será que todos possuem os mesmos interesses?
 
 ### A nossa ideia
 
-Nós acreditamos que todos têm algo a aprender e a ensinar.
+Com o objetivo de proporcionar um ambiente onde aprender pode ser algo divertido e interessante, a IndieWise surge com o objetivo de valorizar todos os tipos de conhecimentos, reunindo pessoas com diversas aptidões e interesses para que juntos busquem formas criativas de ensinar e aprender. 
 
 ### Tecnologias
 
