@@ -29,7 +29,7 @@ Com o objetivo de proporcionar um ambiente onde aprender pode ser algo divertido
 ### Links
 
 1. Protótipo
-2. Site no Railway
-https://indiewise-back-end-main-production.up.railway.app/indiewise.com.br
-4. LinkTree
-https://linktr.ee/indie.wise
+2. Site no Railway:
+   - [https://indiewise-back-end-main-production.up.railway.app/indiewise.com.br](https://indiewise-back-end-main-production.up.railway.app/indiewise.com.br)
+3. LinkTree:
+   - [https://linktr.ee/indie.wise](https://linktr.ee/indie.wise)
