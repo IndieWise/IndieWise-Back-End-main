@@ -1,4 +1,5 @@
 # IndieWise
+![membros](caminho/para/a/imagem.png)
 
 ## Valorização e compartilhamento de todo conhecimento
 
