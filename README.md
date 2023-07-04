@@ -26,6 +26,8 @@ Com o objetivo de proporcionar um ambiente onde aprender pode ser algo divertido
 
 ### Integrantes
 
+![image](integrandes.jpg)
+
 ### Links
 
 1. Protótipo:
