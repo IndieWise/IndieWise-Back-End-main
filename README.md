@@ -28,8 +28,9 @@ Com o objetivo de proporcionar um ambiente onde aprender pode ser algo divertido
 
 ### Links
 
-1. Protótipo
-2. Site no Railway:
+1. Protótipo:
+ - https://www.figma.com/file/bXONaH4J4xNAEOXOPtj38r/Prototipo?type=design&node-id=184-321&mode=design&t=DTYppaDhQ5nL9hXY-0
+3. Site no Railway:
    - [https://indiewise-back-end-main-production.up.railway.app/indiewise.com.br](https://indiewise-back-end-main-production.up.railway.app/indiewise.com.br)
-3. LinkTree:
+4. LinkTree:
    - [https://linktr.ee/indie.wise](https://linktr.ee/indie.wise)
