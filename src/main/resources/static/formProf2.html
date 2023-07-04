@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndieWise | Formulário</title>
+    <link rel="stylesheet" href="css/darkmode.css" class="folhaDeEstilo">
+</head>
+<body class="bodyForm">
+    
+    <nav class="navForm">
+        <a href="formProf1.html">
+            <p class="num">1</p>
+            <p>Começando</p>
+        </a>
+        
+        <hr>
+
+        <a href="formProf2.html">
+            <p class="numDestaque">2</p>
+            <p>Seu conhecimento</p>
+        </a>
+        
+        <hr>
+
+        <a href="">
+            <p class="num">3</p>
+            <p>Seu perfil</p>
+        </a>
+    </nav>
+
+<div class="containerForm2">
+
+    <main class="mainForm2">
+        <h1>Preencha os seguintes campos</h1>
+
+        <form>
+            <input type="text" id="seuConhecimentoCadastroProfessor" placeholder="Conhecimento que você vai compartilhar">
+            
+            <select id="adquiriuConhecimentoCadastroProfessor">
+                <option value="Como você adquiriu esse conhecimento">Como você adquiriu esse conhecimento</option>
+                <option value="Estou fazendo faculdade nessa área">Estou fazendo faculdade nessa área</option>
+                <option value="Tenho diploma/certificação nessa área">Tenho diploma/certificação nessa área</option>
+                <option value="Já trabalhei/trabalho nessa área">Já trabalhei/trabalho nessa área</option>
+                <option value="Adquiri o conhecimento de maneira informal">Adquiri o conhecimento de maneira informal</option>
+            </select>
+
+            <input type="number" id="valor" name="valor" min="0" step="0.01" placeholder="Preço por hora de aula *">
+            <p>* Recomendamos que o preço das aulas sejam acessíveis, cobrando no máximo R$100</p>
+
+        </form>
+        <button onclick="formProf2()">Continuar</button>
+        <!-- <a >Compartilhar conhecimento</a> -->
+    </main>
+
+</div>    
+    <script src="js/formProf2.js"></script>
+    <script src="https://kit.fontawesome.com/4e5b541ca7.js" crossorigin="anonymous"></script>
+</body>
+</html>
